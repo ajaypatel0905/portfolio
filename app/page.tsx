@@ -39,13 +39,13 @@ export default function Home() {
   return (
     <main className="mx-auto w-full max-w-4xl px-6 pb-24">
       {/* Hero */}
-      <header className="flex min-h-[92vh] flex-col-reverse items-start justify-center gap-10 sm:flex-row sm:items-center sm:justify-between">
+      <header className="flex min-h-[88svh] flex-col justify-center gap-8 pt-10 sm:min-h-[90vh] sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:pt-0">
         <div className="max-w-xl">
           <p className="rise text-sm tracking-wide text-muted" style={{ animationDelay: "0ms" }}>
             {profile.location} · IIT Hyderabad &rsquo;24
           </p>
           <h1
-            className="serif rise mt-4 text-6xl font-medium leading-[1.02] tracking-tight sm:text-7xl"
+            className="serif rise mt-4 text-5xl font-medium leading-[1.02] tracking-tight sm:text-7xl"
             style={{ animationDelay: "90ms" }}
           >
             {profile.name}
@@ -54,12 +54,15 @@ export default function Home() {
             {profile.role}
           </p>
           <p
-            className="rise mt-6 text-lg leading-relaxed text-muted"
+            className="rise mt-5 max-w-md text-base leading-relaxed text-muted sm:mt-6 sm:text-lg"
             style={{ animationDelay: "270ms" }}
           >
             {profile.tagline}
           </p>
-          <nav className="rise mt-10 flex flex-wrap gap-6 text-sm" style={{ animationDelay: "360ms" }}>
+          <nav
+            className="rise mt-8 flex flex-wrap gap-x-5 gap-y-2.5 text-sm sm:mt-10 sm:gap-6"
+            style={{ animationDelay: "360ms" }}
+          >
             <a href="#work" className="text-ink underline-offset-4 transition hover:text-accent hover:underline">
               Work ↓
             </a>
@@ -74,15 +77,33 @@ export default function Home() {
             <ExternalLink href={profile.linkedin}>LinkedIn</ExternalLink>
             <ExternalLink href={`mailto:${profile.email}`}>Email</ExternalLink>
           </nav>
+          <div
+            className="rise mt-8 grid max-w-md grid-cols-3 gap-3 sm:mt-12"
+            style={{ animationDelay: "450ms" }}
+          >
+            {[
+              ["2 yrs", "AI in production"],
+              ["200M+", "records retrieved"],
+              ["3 live", "products shipped"],
+            ].map(([stat, label]) => (
+              <div key={label} className="glass rounded-2xl px-3 py-3 text-center">
+                <div className="serif text-lg text-accent sm:text-xl">{stat}</div>
+                <div className="mt-0.5 text-[11px] leading-tight text-muted">{label}</div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="rise glass shrink-0 rounded-3xl p-2.5" style={{ animationDelay: "200ms" }}>
+        <div
+          className="rise glass order-first w-fit shrink-0 rounded-3xl p-2 sm:order-none sm:p-2.5"
+          style={{ animationDelay: "200ms" }}
+        >
           <Image
             src="/ajay.png"
             alt="Ajay Patel"
             width={224}
             height={224}
             priority
-            className="h-44 w-44 rounded-2xl object-cover sm:h-56 sm:w-56"
+            className="h-28 w-28 rounded-2xl object-cover sm:h-56 sm:w-56"
           />
         </div>
       </header>
@@ -90,7 +111,7 @@ export default function Home() {
       {/* About */}
       <section className="mt-6">
         <SectionLabel>About</SectionLabel>
-        <div className="glass space-y-4 rounded-3xl p-8 text-[17px] leading-relaxed text-ink/90">
+        <div className="glass space-y-4 rounded-3xl p-6 text-[16px] sm:p-8 sm:text-[17px] leading-relaxed text-ink/90">
           {profile.about.map((p) => (
             <p key={p.slice(0, 20)}>{p}</p>
           ))}
@@ -98,7 +119,7 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section className="mt-20">
+      <section className="mt-14 sm:mt-20">
         <SectionLabel>Experience</SectionLabel>
         <div className="flex flex-wrap items-baseline justify-between gap-2 px-1">
           <h2 className="serif text-2xl">
@@ -119,11 +140,11 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="work" className="mt-20 scroll-mt-10">
+      <section id="work" className="mt-14 scroll-mt-10 sm:mt-20">
         <SectionLabel>Selected work</SectionLabel>
         <div className="space-y-5">
           {projects.map((project) => (
-            <article key={project.name} className="glass glass-hover rounded-3xl p-8">
+            <article key={project.name} className="glass glass-hover rounded-3xl p-6 sm:p-8">
               <div className="flex flex-wrap items-baseline justify-between gap-3">
                 <h3 className="serif text-2xl">{project.name}</h3>
                 <div className="flex gap-4 text-sm">
@@ -159,7 +180,7 @@ export default function Home() {
       </section>
 
       {/* Skills */}
-      <section className="mt-20">
+      <section className="mt-14 sm:mt-20">
         <SectionLabel>Skills</SectionLabel>
         <div className="grid gap-4 sm:grid-cols-2">
           {skills.map((group) => (
@@ -172,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section className="glass mt-24 rounded-3xl p-10 text-center">
+      <section className="glass mt-16 rounded-3xl p-8 sm:mt-24 sm:p-10 text-center">
         <h2 className="serif text-3xl">Let&rsquo;s talk</h2>
         <p className="mx-auto mt-3 max-w-md text-muted">
           Building something with LLMs, retrieval, or agents — or just want to
