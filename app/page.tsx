@@ -42,7 +42,8 @@ export default function Home() {
       <header className="flex min-h-[88svh] flex-col justify-center gap-8 pt-10 sm:min-h-[90vh] sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:pt-0">
         <div className="max-w-xl">
           <p className="rise text-sm tracking-wide text-muted" style={{ animationDelay: "0ms" }}>
-            {profile.location} · IIT Hyderabad &rsquo;24
+            {profile.location} ·{" "}
+            <span className="font-semibold text-accent">IIT Hyderabad &rsquo;24</span>
           </p>
           <h1
             className="serif rise mt-4 text-5xl font-medium leading-[1.02] tracking-tight sm:text-7xl"
