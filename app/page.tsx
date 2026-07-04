@@ -82,7 +82,7 @@ export default function Home() {
             style={{ animationDelay: "450ms" }}
           >
             {[
-              ["2 yrs", "experience"],
+              ["2.5+ yrs", "experience"],
               ["IITH", "IIT Hyderabad '24"],
               ["Equal", "Identity Private Limited"],
             ].map(([stat, label]) => (

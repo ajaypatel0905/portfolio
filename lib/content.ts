@@ -8,7 +8,7 @@ export const profile = {
   github: "https://github.com/ajaypatel0905",
   linkedin: "https://www.linkedin.com/in/ajaypatel0905",
   about: [
-    "Software engineer at Equal (identity verification, Hyderabad) and a B.Tech from IIT Hyderabad (Class of '24). Two years shipping AI systems that do real work in production: retrieval and LLM adjudication over 200M+ court records, autonomous document-collection agents, voice agents, and internal LLM chatbots — serving 50+ enterprise clients.",
+    "Software engineer at Equal (identity verification, Hyderabad) and a B.Tech from IIT Hyderabad (Class of '24). 2.5+ years shipping AI systems that do real work in production: retrieval and LLM adjudication over 200M+ court records, autonomous document-collection agents, voice agents, and internal LLM chatbots — serving 50+ enterprise clients.",
     "The other half of my work is classic backend engineering: Java/Spring Boot microservices, shared libraries running across 12+ services, gRPC, and AWS infrastructure. I care about the unglamorous parts that make systems trustworthy — evaluation harnesses, golden datasets, circuit breakers, and knowing exactly why the system did what it did.",
   ],
 };
