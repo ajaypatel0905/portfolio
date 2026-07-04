@@ -1,0 +1,182 @@
+import { experience, profile, projects, skills } from "@/lib/content";
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-8 flex items-center gap-4">
+      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+        {children}
+      </span>
+      <span className="h-px flex-1 bg-[var(--border)]" />
+    </div>
+  );
+}
+
+function ExternalLink({
+  href,
+  children,
+  strong,
+}: {
+  href: string;
+  children: React.ReactNode;
+  strong?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={`underline-offset-4 transition hover:text-accent hover:underline ${
+        strong ? "font-semibold text-ink" : "text-muted"
+      }`}
+    >
+      {children}
+    </a>
+  );
+}
+
+export default function Home() {
+  return (
+    <main className="mx-auto w-full max-w-3xl px-6 pb-24">
+      {/* Hero */}
+      <header className="flex min-h-[88vh] flex-col justify-center">
+        <p className="rise text-sm tracking-wide text-muted" style={{ animationDelay: "0ms" }}>
+          {profile.location} · IIT Hyderabad &rsquo;24
+        </p>
+        <h1
+          className="serif rise mt-4 text-6xl font-medium leading-[1.02] tracking-tight sm:text-7xl"
+          style={{ animationDelay: "90ms" }}
+        >
+          {profile.name}
+        </h1>
+        <p
+          className="rise mt-3 text-xl text-accent"
+          style={{ animationDelay: "180ms" }}
+        >
+          {profile.role}
+        </p>
+        <p
+          className="rise mt-6 max-w-xl text-lg leading-relaxed text-muted"
+          style={{ animationDelay: "270ms" }}
+        >
+          {profile.tagline}
+        </p>
+        <nav className="rise mt-10 flex flex-wrap gap-6 text-sm" style={{ animationDelay: "360ms" }}>
+          <a href="#work" className="text-ink underline-offset-4 transition hover:text-accent hover:underline">
+            Work ↓
+          </a>
+          <ExternalLink href={profile.github}>GitHub</ExternalLink>
+          <ExternalLink href={profile.linkedin}>LinkedIn</ExternalLink>
+          <ExternalLink href={`mailto:${profile.email}`}>Email</ExternalLink>
+        </nav>
+      </header>
+
+      {/* About */}
+      <section className="mt-6">
+        <SectionLabel>About</SectionLabel>
+        <div className="space-y-4 text-[17px] leading-relaxed text-ink/90">
+          {profile.about.map((p) => (
+            <p key={p.slice(0, 20)}>{p}</p>
+          ))}
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section className="mt-20">
+        <SectionLabel>Experience</SectionLabel>
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="serif text-2xl">
+            {experience.role} · <span className="text-accent">{experience.company}</span>
+          </h2>
+          <span className="text-sm text-muted">{experience.period}</span>
+        </div>
+        <ul className="mt-6 space-y-4">
+          {experience.points.map((point) => (
+            <li key={point.slice(0, 30)} className="flex gap-4 text-[15.5px] leading-relaxed text-ink/85">
+              <span className="mt-[11px] h-px w-6 shrink-0 bg-accent/60" />
+              {point}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Projects */}
+      <section id="work" className="mt-20 scroll-mt-10">
+        <SectionLabel>Selected work</SectionLabel>
+        <div className="space-y-5">
+          {projects.map((project) => (
+            <article
+              key={project.name}
+              className="card-hover rounded-2xl border border-[var(--border)] bg-surface p-7"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-3">
+                <h3 className="serif text-2xl">{project.name}</h3>
+                <div className="flex gap-4 text-sm">
+                  {project.live && (
+                    <ExternalLink href={project.live} strong>
+                      Live ↗
+                    </ExternalLink>
+                  )}
+                  {project.code && (
+                    <ExternalLink href={project.code} strong>
+                      GitHub ↗
+                    </ExternalLink>
+                  )}
+                </div>
+              </div>
+              <p className="mt-1 text-sm italic text-accent/90">{project.kicker}</p>
+              <p className="mt-4 text-[15.5px] leading-relaxed text-ink/85">
+                {project.description}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-[var(--border)] px-3 py-1 text-xs text-muted"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section className="mt-20">
+        <SectionLabel>Skills</SectionLabel>
+        <dl className="space-y-5">
+          {skills.map((group) => (
+            <div key={group.label} className="grid gap-1 sm:grid-cols-[200px_1fr] sm:gap-6">
+              <dt className="text-sm font-semibold text-ink">{group.label}</dt>
+              <dd className="text-[15px] leading-relaxed text-muted">{group.items}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Contact */}
+      <section className="mt-24 rounded-2xl border border-[var(--border)] bg-surface p-10 text-center">
+        <h2 className="serif text-3xl">Let&rsquo;s talk</h2>
+        <p className="mx-auto mt-3 max-w-md text-muted">
+          Building something with LLMs, retrieval, or agents — or just want to
+          compare notes on making AI systems trustworthy?
+        </p>
+        <a
+          href={`mailto:${profile.email}`}
+          className="mt-7 inline-block rounded-full bg-accent px-7 py-3 font-medium text-[#171310] transition hover:opacity-90"
+        >
+          {profile.email}
+        </a>
+        <div className="mt-6 flex justify-center gap-6 text-sm">
+          <ExternalLink href={profile.github}>GitHub</ExternalLink>
+          <ExternalLink href={profile.linkedin}>LinkedIn</ExternalLink>
+        </div>
+      </section>
+
+      <footer className="mt-14 text-center text-xs text-muted">
+        © {new Date().getFullYear()} Ajay Patel · Hyderabad
+      </footer>
+    </main>
+  );
+}

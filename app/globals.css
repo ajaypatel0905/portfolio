@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0e0d0b;
+  --surface: #161412;
+  --border: rgba(214, 197, 168, 0.13);
+  --ink: #ece7dd;
+  --muted: #9a917f;
+  --accent: #d4a25b;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-geist-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(1100px 500px at 85% -5%, rgba(212, 162, 91, 0.07), transparent 55%),
+    radial-gradient(800px 500px at -5% 100%, rgba(212, 162, 91, 0.05), transparent 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(212, 162, 91, 0.3);
+}
+
+.serif {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.card-hover {
+  transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.card-hover:hover {
+  border-color: rgba(212, 162, 91, 0.45);
+  transform: translateY(-3px);
+  background: #1a1815;
+}
