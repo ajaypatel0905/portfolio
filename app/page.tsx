@@ -42,8 +42,7 @@ export default function Home() {
       <header className="flex min-h-[88svh] flex-col justify-center gap-8 pt-10 sm:min-h-[90vh] sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:pt-0">
         <div className="max-w-xl">
           <p className="rise text-sm tracking-wide text-muted" style={{ animationDelay: "0ms" }}>
-            {profile.location} ·{" "}
-            <span className="font-semibold text-accent">IIT Hyderabad &rsquo;24</span>
+            {profile.location}
           </p>
           <h1
             className="serif rise mt-4 text-5xl font-medium leading-[1.02] tracking-tight sm:text-7xl"
@@ -83,9 +82,9 @@ export default function Home() {
             style={{ animationDelay: "450ms" }}
           >
             {[
-              ["2 yrs", "AI in production"],
-              ["200M+", "records retrieved"],
-              ["3 live", "products shipped"],
+              ["2 yrs", "experience"],
+              ["IITH", "IIT Hyderabad '24"],
+              ["Equal", "Identity Private Limited"],
             ].map(([stat, label]) => (
               <div key={label} className="glass rounded-2xl px-3 py-3 text-center">
                 <div className="serif text-lg text-accent sm:text-xl">{stat}</div>
