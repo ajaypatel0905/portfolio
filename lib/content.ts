@@ -56,13 +56,13 @@ export const projects = [
     code: "https://github.com/ajaypatel0905/magicthon",
   },
   {
-    name: "Neustack E-commerce",
-    kicker: "Backend with an nth-order reward system",
+    name: "Redrob SignalRank",
+    kicker: "A candidate ranker that reads profiles",
     description:
-      "E-commerce backend with a recursive reward-discount engine — TypeScript/Express, layered architecture, fully tested.",
-    stack: ["TypeScript", "Express", "Jest"],
+      "Hybrid candidate-ranking engine that scores profiles on actual signal instead of keyword matching — blending deterministic scoring with semantic understanding of what a candidate has actually built.",
+    stack: ["Python", "Embeddings", "Ranking"],
     live: null,
-    code: "https://github.com/ajaypatel0905/neustack-ecommerce",
+    code: "https://github.com/ajaypatel0905/redrob-signalrank",
   },
 ];
 
